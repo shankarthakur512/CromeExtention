@@ -1,0 +1,36 @@
+{
+    "manifest_version": 3,
+    "name": "WhatsApp Translator",
+    "version": "1.0",
+    "description": "Translate WhatsApp messages.",
+    "permissions": [
+      "activeTab",
+      "scripting"
+      
+    ],
+    "host_permissions": [
+      "http://127.0.0.1/*",
+      "https://web.whatsapp.com/*"
+    ],
+    "content_scripts": [
+      {
+        "matches": ["https://web.whatsapp.com/*"],
+        "js": ["content.js"],
+        "run_at": "document_end"
+      }
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": "./icon.jpeg"
+    },
+    "web_accessible_resources": [
+        {
+          "resources": ["*"],
+          "matches": ["<all_urls>"]
+        }
+      ]
+  }
+  
